@@ -1,0 +1,81 @@
+* { box-sizing: border-box; }
+body { margin:0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto; background: #f0f2f5; }
+
+#wrap { display:flex; height:100vh; }
+#left { flex: 1.2; display:flex; flex-direction:column; padding: 10px; }
+#right { flex: 0.8; border-left:1px solid #ddd; display:flex; flex-direction:column; background: white; }
+
+#topbar {
+  display:flex; gap:8px; align-items:center;
+  padding:10px; border-bottom:1px solid #ddd;
+  background: white; border-radius: 8px 8px 0 0;
+}
+#topbar button { padding:8px 12px; cursor:pointer; border: 1px solid #ccc; border-radius: 4px; background: white; }
+#topbar button:disabled { opacity: .5; cursor:not-allowed; }
+#topbar button:hover:not(:disabled) { background: #eee; }
+#role { margin-left:auto; font-weight: bold; color: #666; }
+
+#secretBox{
+  padding:10px;
+  border-bottom:1px solid #ddd;
+  background:#fff9db;
+  display:flex;
+  gap:8px;
+  align-items:center;
+}
+#secretWord{ color: #f08c00; font-size: 1.2em; }
+
+#canvasHost { flex:1; display:flex; background: white; border: 1px solid #ddd; border-radius: 8px; overflow:hidden; position: relative; }
+#hint { padding:10px; background: #eee; font-size: 12px; color: #777; }
+
+#roomInfo { padding:10px; border-bottom:1px solid #ddd; }
+.playersTitle{ margin-top:8px; font-weight:700; color:#444; }
+#players { margin-top:6px; font-size: 14px; line-height: 1.6; }
+.playerRow{ display:flex; justify-content:space-between; padding:6px 0; border-bottom: 1px dashed #eee; }
+.badge{ font-size: 12px; padding:2px 6px; border-radius: 999px; border:1px solid #ddd; }
+.badge.ready{ border-color:#2b8a3e; color:#2b8a3e; }
+.badge.host{ border-color:#1971c2; color:#1971c2; }
+.badge.drawer{ border-color:#f08c00; color:#f08c00; }
+
+#scoreBox{ padding:10px; border-bottom:1px solid #ddd; }
+#scoreBox .title{ font-weight:bold; color: #444; margin-bottom:6px; }
+#scores { font-size: 14px; line-height: 1.6; }
+
+#chatLog { flex:1; overflow-y:auto; padding:10px; background: #f9f9f9; }
+.msg { margin:0 0 6px; font-size: 14px; }
+.msg b { color: #2b8a3e; margin-right:5px; }
+
+#chatForm { display:flex; gap:8px; padding:10px; border-top:1px solid #ddd; }
+#chatInput { flex:1; padding:8px; border: 1px solid #ddd; border-radius: 4px; }
+#chatForm button{ padding:8px 12px; border:1px solid #ddd; border-radius:4px; background:white; cursor:pointer; }
+#chatForm button:hover{ background:#eee; }
+
+/* Overlay (Join screen) */
+#overlay{
+  position:fixed; inset:0;
+  display:flex; align-items:center; justify-content:center;
+  background: rgba(0,0,0,.35);
+  z-index: 999;
+}
+#card{
+  width: min(420px, 92vw);
+  background: white;
+  border-radius: 14px;
+  padding: 18px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.2);
+}
+#card h1{ margin:0 0 6px; }
+#card .sub{ margin:0 0 14px; color:#666; font-size: 14px; line-height: 1.4; }
+#card label{ display:block; margin:10px 0 6px; font-size: 13px; color:#444; }
+#card input{
+  width:100%; padding:10px;
+  border:1px solid #ddd; border-radius: 8px;
+}
+#btnJoin{
+  width:100%; margin-top:12px;
+  padding:10px; border-radius: 10px;
+  border:1px solid #ccc; background: #f8f9fa;
+  cursor:pointer; font-weight:700;
+}
+#btnJoin:hover{ background:#eee; }
+#joinError{ margin-top:10px; color:#c92a2a; font-size: 13px; }

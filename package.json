@@ -1,0 +1,13 @@
+{
+  "name": "draw-and-guess",
+  "version": "1.0.0",
+  "description": "A networked draw and guess game using Node.js and Socket.io",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "^4.22.1",
+    "socket.io": "^4.7.2"
+  }
+}

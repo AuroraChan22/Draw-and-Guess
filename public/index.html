@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Draw & Guess (3-Player Room)</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Start / Join Screen -->
+  <div id="overlay">
+    <div id="card">
+      <h1>Draw & Guess</h1>
+      <p class="sub">Enter a room code + your name. Max 3 players. Everyone must ready up to start.</p >
+
+      <label>Room code (e.g. ABCD)</label>
+      <input id="roomCode" maxlength="8" placeholder="ABCD" />
+
+      <label>Your name</label>
+      <input id="playerName" maxlength="18" placeholder="Name" />
+
+      <button id="btnJoin">Join room</button>
+      <div id="joinError"></div>
+    </div>
+  </div>
+
+  <div id="wrap">
+    <div id="left">
+      <div id="topbar">
+        <button id="btnDrawer" disabled>I’m the Drawer</button>
+        <button id="btnGuess" disabled>I’m Guessing</button>
+        <button id="btnReset" disabled>Host: Reset canvas</button>
+        <button id="btnReady" disabled>Ready</button>
+        <span id="role">Not connected</span>
+      </div>
+
+      <div id="secretBox">
+        <span>Secret word (drawer only):</span>
+        <b id="secretWord">—</b>
+      </div>
+
+      <div id="canvasHost"></div>
+      <div id="hint">Drawer: hold and drag to draw. Guessers: watch and type your guess.</div>
+    </div>
+
+    <div id="right">
+      <div id="roomInfo">
+        <div><b>Room:</b> <span id="roomLabel">—</span></div>
+        <div class="playersTitle">Players (max 3)</div>
+        <div id="players"></div>
+      </div>
+
+      <div id="scoreBox">
+        <div class="title">Scoreboard</div>
+        <div id="scores">No scores yet</div>
+      </div>
+
+      <div id="chatLog"></div>
+
+      <form id="chatForm">
+        <input id="chatInput" placeholder="Type your guess..." autocomplete="off" />
+        <button type="submit">Send</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
+  <script src="sketch.js"></script>
+</body>
+</html>
